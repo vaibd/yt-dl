@@ -1,0 +1,98 @@
+
+body {
+    background-color: #FFFFFF;
+}
+
+.centered {
+    padding-top: 200px;
+    text-align: center;
+}
+
+.secret-text {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #000;
+}
+
+
+.btn-google {
+    margin-left: 1%;
+}
+
+.reg {
+    margin-left: 2%;
+}
+
+.top {
+    margin-left: 2%;
+    margin-top: 0.5%;
+}
+
+.col-sm-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.container, .container-sm {
+    max-width: 540px;
+}
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+    background-image: url("/home.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.cardL {
+    margin-top: -78%;
+}
+
+.bgReg {
+    background-image: url("/reg.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.regBox {
+    margin-top: -35%;
+    margin-right: 10%;
+}
+
+.bgLogin {
+    background-image: url("/login.jpg");
+    height: 100%; 
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+.loginBox {
+    margin-left: 55%;
+    margin-top: -36%;
+}
+
+.cardReg {
+    background-color: #F6F7F9;
+}
+
+.clR {
+    color:#00C9DE;
+}
+
+.clL {
+    color:#00DFC2;
+}
+ 
