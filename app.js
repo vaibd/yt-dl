@@ -30,7 +30,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/Users", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://vaibd:abcd@1234@cluster0-do9de.mongodb.net/Users", {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema ({
