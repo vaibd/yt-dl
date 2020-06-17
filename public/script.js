@@ -1,7 +1,7 @@
 let Btn = document.getElementById('btn');
 let URLip = document.querySelector('.URLinput');
 let select = document.querySelector('.opt');
-let serverURL = 'http://localhost:3000';
+let serverURL = 'https://damp-island-47659.herokuapp.com/';
 
 Btn.addEventListener('click', () => {
 	if (!URLip.value) {
