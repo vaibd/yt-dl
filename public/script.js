@@ -5,10 +5,6 @@ let URLip = document.querySelector('.URLinput');
 let yts = document.querySelector('.ytSearch');
 let select = document.querySelector('.opt');
 let serverURL = 'https://damp-island-47659.herokuapp.com';
-let prefix = 'https://www.googleapis.com/youtube/v3/search?maxResults=1&q=';
-let midSearch = yts.value;
-let suffix = '&key=AIzaSyCb5HvziFBD0_zKvL6LXNFHbYi1YyTSmbw';
-
 
 
 
@@ -51,28 +47,22 @@ function redirectSong(){
     
 document.getElementById('heading').innerHTML = 'Playing';
 document.getElementById("player").src = "https://www.youtube.com/embed?listType=search&list=" + yts.value ;
-
-// var qwe = 'https://www.googleapis.com/youtube/v3/search?maxResults=1&q=linkin park in the end&key=AIzaSyCb5HvziFBD0_zKvL6LXNFHbYi1YyTSmbw';
-var qwe = `https://www.googleapis.com/youtube/v3/search?maxResults=1&q=${midSearch}&key=AIzaSyCb5HvziFBD0_zKvL6LXNFHbYi1YyTSmbw`;
-
-   
-
-
+let midSearch = yts.value;
+var qwe =  `https://www.googleapis.com/youtube/v3/search?maxResults=1&q=${midSearch}&key=AIzaSyAD3GfccltxuHz6Qks7nY6W6Mq-cTBPxkU`;
+console.log(midSearch);
+console.log(qwe);
 fetch(qwe)
     .then(res => res.json())
     .then((out) => {
-     
-        
-         var text = out.items[0].id.videoId;
+         var text = 'https://www.youtube.com/watch?v=' + out.items[0].id.videoId;
          console.log(text);
-        
-        
+         
+         document.getElementById("dlSr").value = text;
+         
 }).catch(err => console.error(err));
-
-
 }
 
-console.log(midSearch);
+
 
 
 
