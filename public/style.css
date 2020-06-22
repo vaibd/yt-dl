@@ -18,15 +18,23 @@
 }
 
 .URLinput,
-.convert-button {
+.convert-button,
+.play-button {
 	font-size: 1.3em;
 	padding: 5px 10px;
     margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-.URLinput {
+.ytSearch {
+	font-size: 1.3em;
+	padding: 5px 10px;
+}
+
+.URLinput,
+.ytSearch {
 	margin-bottom: 2%;
-    margin-top: 3%;
+    /*margin-top: 3%;*/
 	border-radius: 4px 0px 0px 4px;
 	width: 30em;
 	text-align: left;
@@ -39,7 +47,12 @@
 	border: 2px solid #0485ff;
 }
 
-.convert-button {
+.ytSearch:focus {
+	border: 2px solid #0485ff;
+}
+
+.convert-button,
+.play-button {
 	margin: 2% auto;
 	border: 2px solid #0485ff;
 	background: #0485ff;
@@ -52,6 +65,11 @@
 	border-color: #016acc;
 }
 
+.play-button {
+	background: #016acc;
+	border-color: #016acc;
+}
+
 @media only screen and (max-width: 600px) {
 	body {
 		display: grid;
@@ -59,12 +77,14 @@
 		justify-content: center;
 	}
 
-	.URLinput {
+	.URLinput,
+    .ytSearch {
 		margin: auto;
 		width: 100%;
 	}
 
-	.convert-button {
+	.convert-button,
+    .play-button {
 		margin: 7% auto;
 		width: 100%;
 	}

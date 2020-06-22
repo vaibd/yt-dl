@@ -1,5 +1,8 @@
 let Btn = document.getElementById('btn');
+let BtnS = document.getElementById('btnS');
+
 let URLip = document.querySelector('.URLinput');
+let yts = document.querySelector('.ytSearch');
 let select = document.querySelector('.opt');
 let serverURL = 'https://damp-island-47659.herokuapp.com';
 
@@ -26,3 +29,24 @@ function redirectMp4(query) {
 
 
  
+BtnS.addEventListener('click', () => {
+    
+    if (!yts.value) {
+		alert('Enter song name');
+	} else {		
+        redirectSong();
+	}
+    
+
+});
+
+
+function redirectSong(){
+    
+document.getElementById('heading').innerHTML = 'Playing';
+document.getElementById("player").src = "https://www.youtube.com/embed?listType=search&list=" + yts.value ;
+
+
+
+
+}
