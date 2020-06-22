@@ -37,8 +37,11 @@ const userSchema = new mongoose.Schema ({
   email: String,
   password: String,
   googleId: String,
-  secret: String
-});
+  secret: String,
+  name: String,
+  phone: Number,
+  usr: String
+  });
 
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
@@ -60,7 +63,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/secrets",
+    callbackURL: "https://damp-island-47659.herokuapp.com/auth/google/download",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -157,7 +160,7 @@ app.get("/logout", function(req, res){
 
 app.post("/register", function(req, res){
 
-  User.register({username: req.body.username}, req.body.password, function(err, user){
+  User.register({username: req.body.username, name: req.body.name, phone: req.body.number, usr: req.body.usr}, req.body.password, function(err, user){
     if (err) {
       console.log(err);
       res.redirect("/register");
