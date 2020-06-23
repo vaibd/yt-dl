@@ -286,7 +286,7 @@ app.post('/edit', function (req, res, next) {
             password: req.body.password
     }, function (err){
         if (err) console.log(err);
-        res.render('login', {
+        res.render('view', {
         user: req.user
     });
 });  
@@ -302,7 +302,7 @@ app.get("/play",function(req,res){
   res.sendFile(__dirname+"/play.html")
 })       
          
- app.get("/view", function(req, res){
+app.get("/view", function(req, res){
   User.find({_id: req.user._id}, function(err, foundUsers){
     if (err){
       console.log(err);
@@ -312,7 +312,7 @@ app.get("/play",function(req,res){
       }
     }
   });
- });
+});
 
 
 
