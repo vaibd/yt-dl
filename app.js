@@ -263,3 +263,56 @@ app.get('/downloadmp4', async (req, res, next) => {
 	}
 });
  
+
+
+
+app.get("/edit", function(req, res, next) {
+  if (req.isAuthenticated()){
+       res.render('edit', {
+         user: req.user
+         });
+  } else {
+    res.redirect("/error");
+  }
+});
+
+app.post('/edit', function (req, res, next) {
+    if (req.isAuthenticated()){
+          User.updateOne({_id: req.user._id}, {$set: req.body}, {
+            username: req.body.username,
+            name: req.body.name,
+            phone: req.body.number,
+            usr: req.body.usr,
+            password: req.body.password
+    }, function (err){
+        if (err) console.log(err);
+        res.render('login', {
+        user: req.user
+    });
+});  
+        
+        
+  } else {
+    res.redirect("/error");
+  }
+});
+
+         
+app.get("/play",function(req,res){
+  res.sendFile(__dirname+"/play.html")
+})       
+         
+ app.get("/view", function(req, res){
+  User.find({_id: req.user._id}, function(err, foundUsers){
+    if (err){
+      console.log(err);
+    } else {
+      if (foundUsers) {
+        res.render("view", {usersWithSecrets: foundUsers});
+      }
+    }
+  });
+ });
+
+
+

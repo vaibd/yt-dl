@@ -1,0 +1,84 @@
+<%- include('partials/header') %>
+
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/download">R H Y M E</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/download">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/play">Play</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/view">View Profile</a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="collapse navbar-collapse text-right" id="navbarNav">
+     <ul class="navbar-nav ml-auto">
+         <li class="nav-item">
+        <a class="nav-link active" href="/edit">Edit Profile <span class="sr-only">(current)</span></a>
+         </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/">Logout</a>
+         </li>
+     </ul>
+  </div>
+</nav>
+
+<div class="bgEdit"></div>
+
+<div class="container regBox">
+  <div class="row">
+    <div class="col-sm-8 ml-3">
+      <div class="card border border-secondary cardReg">
+      <h1 class="display-5 top">Edit</h1>
+        <div class="card-body">
+
+          <!-- Makes POST request to /edit route -->
+          <form action="/edit" method="POST">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="username">
+            </div>
+              <div class="form-group">
+              <label for="usr">Username</label>
+              <input type="text" class="form-control" name="usr">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input type="text" class="form-control" name="name">
+            </div>
+          <div class="form-group">
+              <label for="number">Phone number</label>
+              <input type="tel" class="form-control" name="number">
+            </div>
+            
+          
+          
+           <div class="row">
+          <button type="submit" class="btn btn-dark reg">Submit</button>
+          </div>
+          
+          </form>
+
+       
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<%- include('partials/header') %>
+

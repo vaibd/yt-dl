@@ -2,7 +2,7 @@
 
 <div class="bgReg"></div>
 
-<div class="container regBox">
+<div class="container regBoxx">
   <div class="row">
     <div class="col-sm-8 ml-3">
       <div class="card border border-secondary cardReg">
@@ -13,7 +13,7 @@
           <form action="/register" method="POST">
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" name="username">
+              <input type="email" class="form-control" name="username" minlength="17">
             </div>
               <div class="form-group">
               <label for="usr">Username</label>
@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" name="password">
+              <input type="password" class="form-control" name="password" minlength="8">
             </div>
             <div class="form-group">
               <label for="name">Full name</label>

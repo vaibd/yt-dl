@@ -11,25 +11,22 @@
     
      <!-- CSS -->
 	<link rel='stylesheet' href='./style.css' />
-	<title>Youtube Downloader</title>
-	
-
+	<title>Video Player</title>
 </head>
-
 <body>
 
-<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-  <a class="navbar-brand" href="localhost:3000/download">R H Y M E</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark nvv">
+  <a class="navbar-brand" href="/download">R H Y M E</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/download">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="/download">Home </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/play">Play</a>
+        <a class="nav-link active" href="/play">Play <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/view">View Profile</a>
@@ -49,39 +46,24 @@
   </div>
 </nav>
  
-<img src="./yt.png" class="ytt" alt="topImg" style="margin-left: 40%;" height="300">
-   
-    <div class="container-md">
-	<h4 id="heading" ='heading'><b>Paste YouTube URL</b></h4>
-	
-<div class="input-group input-group-lg w-75 mx-auto">
-  <div class="input-group-prepend"></div>
-   <input class='ytSearch form-control' placeholder='Search' />
+
+<div class="container-md">
+	<h3 id="heading" class="hdd"><b>Search for the video to play</b></h3>
+    
+    <input class='ytSearch' placeholder='Search' />
     <div class= "w-100"></div>
-   <input id = 'dlSr' class='URLinput form-control' placeholder='Paste link here' />
-   <div class= "w-100"></div>
-</div>
-
-<div class="input-group mb-3 w-25 mx-auto optt">
-    <select class='opt custom-select text-center '> 
-		<option value='mp3'>mp3</option>
-		<option value='mp4'>mp4</option>
-	</select> 	
-</div>	
-
-
+    <div class="col-md-2 ">
+	</div>
     <div class= "w-100"></div>
-	<button class='convert-button btn btn-primary text-center' id='btn'>Download</button>
-	<button class='play-button btn btn-danger text-center' id='btnS'>Play</button>
-	
+	<button class='play-button btn btn-primary text-center' id='btnS'>Play</button>
 	<div class= "w-100"></div>
 
-  <iframe id="player" type="text/html" width="640" height="390"
+ <iframe id="player" type="text/html" width="1100" height="500"
   src=""
   frameborder="0"></iframe>
-	
-	<script type="text/javascript" src="./script.js"></script>
-	
+  
+
+    <script type="text/javascript" src="./play.js"></script>	
 	 <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -91,3 +73,4 @@
 
 </html>
  
+

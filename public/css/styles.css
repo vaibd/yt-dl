@@ -66,10 +66,23 @@ body, html {
     background-size: cover;
 }
 
-.regBox {
-    margin-top: -45%;
-    margin-right: 10%;
+.bgEdit {
+    background-image: url("/edit.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+.regBox {
+    margin-top: -48%;
+}
+
+.regBoxx {
+    margin-top: -45%;
+    margin-left: 50%;
+}
+
 
 .bgLogin {
     background-image: url("/login.jpg");
@@ -85,7 +98,7 @@ body, html {
 }
 
 .cardReg {
-    background-color: #F6F7F9;
+    background-color: #F8F8F8;
 }
 
 .clR {
@@ -95,4 +108,12 @@ body, html {
 .clL {
     color:#00DFC2;
 }
- 
+
+.nvv {
+    margin-bottom: 2%;
+}
+
+.crd {
+     margin-left: 9%;
+}
+    
