@@ -4,7 +4,7 @@ let BtnS = document.getElementById('btnS');
 let URLip = document.querySelector('.URLinput');
 let yts = document.querySelector('.ytSearch');
 let select = document.querySelector('.opt');
-let serverURL = 'https://dl-rhyme.herokuapp.com';
+let serverURL = 'http://dl-rhyme.herokuapp.com/';
 
 
 
