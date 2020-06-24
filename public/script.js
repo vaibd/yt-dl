@@ -48,7 +48,7 @@ function redirectSong(){
 document.getElementById('heading').innerHTML = 'Playing';
 document.getElementById("player").src = "https://www.youtube.com/embed?listType=search&list=" + yts.value ;
 let midSearch = yts.value;
-var qwe =  `https://www.googleapis.com/youtube/v3/search?maxResults=1&q=${midSearch}&key=AIzaSyAD3GfccltxuHz6Qks7nY6W6Mq-cTBPxkU`;
+var qwe =  `https://www.googleapis.com/youtube/v3/search?maxResults=1&q=${midSearch}&key=AIzaSyCJwoAW9Xmi3IMQeDNfC2f_N9DGUqTieOE`;
 console.log(midSearch);
 console.log(qwe);
 fetch(qwe)
