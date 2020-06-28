@@ -1,6 +1,5 @@
 <%- include('partials/header') %>
 
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark nvv">
   <a class="navbar-brand" href="/download">R H Y M E</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +14,7 @@
         <a class="nav-link" href="/play">Play</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="/view">View Profile <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/view">View Profile</a>
       </li>
     </ul>
   </div>
@@ -32,23 +31,37 @@
   </div>
 </nav>  
 
-<div class="container">
-<div class="card text-center border border-secondary crdView" style="width: 25rem;">
-  <div class="card-body">
-     <% usersWithSecrets.forEach(function(user){ %>
-<div class="card crdsp"> <div class="card-body crdBody"> <p> <h5 class="card-title"><b>Email:</b></h5> <%=user.username%></p> </div> </div>
-<div class="card crdsp"> <div class="card-body crdBody"> <p> <h5 class="card-title"><b>Username:</b></h5> <%=user.usr%></p> </div> </div>
-<div class="card crdsp"> <div class="card-body crdBody"> <p> <h5 class="card-title"><b>Name:</b></h5> <%=user.name%></p> </div> </div>
-<div class="card crdsp"> <div class="card-body crdBody"> <p> <h5 class="card-title"><b>Phone number:</b></h5> <%=user.phone%></p> </div> </div>
-<div class="card crdsp"> <div class="card-body crdBody"> <p> <h5 class="card-title"><b>Role:</b></h5> <%=user.role%></p> </div> </div>
+    <% userList.forEach(function(user){ %>
+        <p></p>
+    <div class="container">
+    <div class="card text-center border border-secondary crd" style="width: 35rem;">
+        <p></p>
+        <p> <span class="preff"> <b>Email:</b> </span> <%=user.username%></p>
+        <p> <span class="preff"> <b>Name:</b> </span> <%=user.name%></p> 
+        <p> <span class="preff"> <b>User name:</b> </span> <%=user.usr%>
+         <span class="preff"> <b> &nbsp; &nbsp; Phone number:</b> </span> <%=user.phone%></p>
+        <p> <span class="preff"> <b>Role:</b> </span><%=user.role%></p>
+
+        <p></p>
+    </div>
+    </div>
+    </div> 
+    <p></p>
     <% }) %>
-  </div>
-</div>
-</div>  
-<%- include('partials/header') %>
+<%- include('partials/footer') %>
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+ 

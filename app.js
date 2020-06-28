@@ -33,6 +33,7 @@ app.use(passport.session());
 mongoose.connect("mongodb+srv://vaibd:abcd@1234@cluster0-do9de.mongodb.net/Users", {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set("useCreateIndex", true);
 
+
 const userSchema = new mongoose.Schema ({
   email: String,
   password: String,
@@ -40,11 +41,15 @@ const userSchema = new mongoose.Schema ({
   secret: String,
   name: String,
   phone: String,
-  usr: String
-  });
+  usr: String,
+  role: { type: String, default: "User" },
+  songName: String
+});
 
+  
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
+
 
 const User = new mongoose.model("User", userSchema);
 
@@ -174,9 +179,13 @@ app.post("/register", function(req, res){
   });
 
 });
+
 app.get("/download",function(req,res){
   res.sendFile(__dirname+"/index.html")
-})
+});
+
+
+
 app.post("/login", function(req, res){
 
   const user = new User({
@@ -210,21 +219,27 @@ app.listen(process.env.PORT || 3000, function() {
 
 //dl 
 
-app.post("/", function(req, res){
-   //const URLinput = req.body.URLinput;
-   //const btn = req.body.btn;
-   //const opt = req.body.opt; 
-    
-    
-    
-    
-    
-    
+
+
+app.post('/stat', function (req, res, next) {
+    if (req.isAuthenticated()){
+         let list = {songName: req.body.stat};
+          User.updateOne({_id: req.user._id}, {$push: {songName: req.body.stat}}, function (err){
+        if (err) console.log(err);
+        res.redirect('/download');
+        });  
+        
+        
+  } else {
+    res.redirect("/error");
+  }
 });
 
-app.get('/downloadmp3', async (req, res, next) => {
+
+
+app.get('/downloadmp3', async (req, res, next) => {  
 	try {
-		var url = req.query.url;
+		 let url = req.query.url;
 		let title = 'audio';
 		await ytdl.getBasicInfo(url, {
 			format: 'mp4'
@@ -236,12 +251,13 @@ app.get('/downloadmp3', async (req, res, next) => {
 		ytdl(url, {
 			format: 'mp3',
 			filter: 'audioonly',
-		}).pipe(res);
+		}).pipe(res);         
 	} catch (err) {
 		console.error(err);
-	}
+	}	 
 });
-app.post('/download')
+
+
 
 app.get('/downloadmp4', async (req, res, next) => {
 	try {
@@ -314,5 +330,82 @@ app.get("/view", function(req, res){
   });
 });
 
+app.get("/admin", function(req, res){
+    
+      if (req.user.role === "admin") {
+ 
+            User.find({}, function(err, foundUsers){
+            if (err){
+                console.log(err);
+            } else {
+                    if (foundUsers) {
+                        console.log(foundUsers);
+                        res.render("admin", {userList: foundUsers});
+                    }
+              }
+            });
+
+      } else {
+         res.redirect("/error");
+         }
+});
+
+ 
+
+app.get("/adminEdit", function(req, res){
+
+      if (req.user.role === "admin") {
+ 
+            User.find({}, function(err, foundUsers){
+            if (err){
+                console.log(err);
+            } else {
+                    if (foundUsers) {
+                        res.render("adminEdit", {userList: foundUsers});
+                    }
+              }
+            });
+
+      } else {
+         res.redirect("/error");
+         }
+});
+
+app.post("/editAdmin", function(req, res){
+
+      if (req.user.role === "admin") {
+ 
+                User.updateOne({_id: req.body.id}, {$set: req.body}, {
+                    username: req.body.username,
+                    name: req.body.name,
+                    phone: req.body.number,
+                    usr: req.body.usr,
+                    password: req.body.password
+                }, function (err){
+                    if (err) console.log(err);
+                    res.redirect('adminEdit');
+                }); 
+
+      } else {
+         res.redirect("/error");
+         }
+});
+
+ 
 
 
+
+app.post("/admindelete", function(req, res){
+
+      if (req.user.role === "admin") {
+ 
+              User.deleteOne({_id: req.body.id}, function (err){
+                    if (err) console.log(err);
+                    res.redirect('adminEdit');
+                }); 
+
+      } else {
+         res.redirect("/error");
+         }
+});
+ 

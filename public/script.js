@@ -4,8 +4,7 @@ let BtnS = document.getElementById('btnS');
 let URLip = document.querySelector('.URLinput');
 let yts = document.querySelector('.ytSearch');
 let select = document.querySelector('.opt');
-let serverURL = 'http://dl-rhyme.herokuapp.com';
-
+let serverURL = 'http://localhost:3000';
 
 
 Btn.addEventListener('click', () => {
@@ -17,12 +16,14 @@ Btn.addEventListener('click', () => {
 		} else if (select.value == 'mp4') {
 			redirectMp4(URLip.value);
 		}
+		
 	}
 });
 
 function redirectMp3(query) {
 	window.location.href = `${serverURL}/downloadmp3?url=${query}`;
 	document.getElementById('heading').innerHTML = 'File Should be Downloading now';
+    document.getElementById("stat").value = yts.value;
 }
 
 function redirectMp4(query) {
@@ -58,6 +59,7 @@ fetch(qwe)
          console.log(text);
          
          document.getElementById("dlSr").value = text;
+         document.getElementById("stat").value = yts.value;
          
 }).catch(err => console.error(err));
 }

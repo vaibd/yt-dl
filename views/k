@@ -1,0 +1,237 @@
+app.get("/adminEdit", function(req, res){
+
+      if (req.user.role === "admin") {
+ 
+            User.find({}, function(err, foundUsers){
+            if (err){
+                console.log(err);
+            } else {
+                    if (foundUsers) {
+                        res.render("adminEdit", {userList: foundUsers});
+                    }
+              }
+            });
+
+      } else {
+         res.redirect("/error");
+         }
+});
+
+
+xxxxxxxxxxxxxxx
+
+
+
+    <% userList.forEach(function(user){ %>
+        <p></p>
+    <div class="container">
+    <div class="card text-center border border-secondary crd" style="width: 35rem;">
+        <p></p>
+        <input placeholder='Paste link here' />
+        <p> <span class="preff"> <b>Email:</b> </span> <%=user.username%></p>
+        <p> <span class="preff"> <b>Name:</b> </span> <%=user.name%></p> 
+        <p> <span class="preff"> <b>User name:</b> </span> <%=user.usr%>
+         <span class="preff"> <b> &nbsp; &nbsp; Phone number:</b> </span> <%=user.phone%></p>
+        <p> <span class="preff"> <b>Role:</b> </span><%=user.role%></p>
+        <p></p>
+    </div>
+    </div>
+    </div> 
+    <p></p>
+    <% }) %>
+<%- include('partials/header') %>
+
+
+
+xxxxxxxxxxxxxxx
+
+
+  User.deleteOne({_id: req.body.id}, function (err){
+                    if (err) console.log(err);
+                    res.redirect('adminEdit');
+                }); 
+
+
+app.post("/admindelete", function(req, res){
+
+      if (req.user.role === "admin") {
+ 
+              User.remove(function (err, User) {
+                if (err) return console.log(err);
+                User.findById({_id: req.body.id}, function (err, product) {
+                res.redirect('adminEdit');
+                })
+                })
+
+      } else {
+         res.redirect("/error");
+         }
+});
+ 
+
+app.post("/admindelete", function(req, res){
+
+      if (req.user.role === "admin") {
+ 
+              User.remove({_id: req.body.id}, function (err){
+                    if (err) console.log(err);
+                    res.redirect('adminEdit');
+                }); 
+
+      } else {
+         res.redirect("/error");
+         }
+});
+ 
+
+ 
+app.post("/admindelete", function(req, res){
+
+      if (req.user.role === "admin") {
+ 
+              User.deleteOne(function (err, User) {
+                if (err) { return console.log(err); }
+                else {
+                    User.find({_id: req.body.id}, function (err, product) {
+                    res.redirect('adminEdit');
+                    });
+                }
+              });
+      } else {
+         res.redirect("/error");
+         }
+});
+
+
+
+
+
+app.post("/download",function(req,res){
+  console.log(req.query.url);
+ var stat = {"nameSong": req.query.url};
+ User.findOneAndUpdate({_id: req.user._id}, {$push: {stat: stat}});
+    
+});
+
+
+
+
+app.post('/downloadmp3', async (req, res, next)  => {
+
+        console.log(req.query.url);
+});
+
+
+
+
+
+
+
+app.post('/downloadmp3', function (req, res, next) {
+     console.log("uwuwuwwuwu");
+    if (req.isAuthenticated()){
+          User.updateOne({_id: req.user._id}, {$set: req.body}, {
+            name: "changg nam",
+            usr: "chnag usr",
+            password: "chang pw"
+    }, function (err){
+        if (err) console.log(err);
+        res.render('login', {
+        user: req.user
+    });
+});          
+  } else {
+    res.redirect("/error");
+  }
+});
+    
+    
+    
+    
+    
+    
+    
+    
+    app.get("/stat",function(req,res){
+
+   console.log("yooo");    
+
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+app.post("/stat",function(req,res){
+
+console.log(req.body.stat);
+
+   User.updateOne({_id: req.user._id}, {
+            name: req.body.stat,
+    }, function (err){
+        if (err) console.log(err);
+        res.render('login', {
+        user: req.user
+    });
+}); 
+
+
+});
+
+
+
+app.get("/stat", function(req, res, next) {
+  if (req.isAuthenticated()){
+       res.render('edit', {
+         user: req.user
+         });
+  } else {
+    res.redirect("/error");
+  }
+});
+
+
+
+
+
+
+
+
+<div class="buttonSet">
+    <div style="float: left;"> 
+    
+    
+     <div style="float: right;"> 
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     app.post('/stat', function (req, res, next) {
+    if (req.isAuthenticated()){
+         let list = {songName: req.body.stat};
+          User.updateOne({_id: req.user._id}, {$push: {stat: list}}, function (err){
+        if (err) console.log(err);
+        res.redirect('/download');
+        });  
+        
+        
+  } else {
+    res.redirect("/error");
+  }
+});
